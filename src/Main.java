@@ -10,6 +10,8 @@ public class Main {
 
         int deliveryDistance = 95;
         findOutTheNumberOfDay(deliveryDistance);
+
+        outputTheResult(deliveryDistance);
     }
 
     public static void definesTheYear(int currentYear) {
@@ -37,20 +39,27 @@ public class Main {
 
     }
 
-    public static void findOutTheNumberOfDay(int deliveryDistance) {
+    public static int findOutTheNumberOfDay(int deliveryDistance) {
+        int deliveryDay;
+        if (deliveryDistance <= 20) {
+            deliveryDay = 1;
+        }
+        else if (deliveryDistance <= 60) {
+            deliveryDay = 2;
+        }
+        else if (deliveryDistance <= 100){
+            deliveryDay = 3;
+        }
+        else {
+            deliveryDay = 0;
+        }
+
+        return deliveryDay;
+
+    }
+
+    public static void outputTheResult(int deliveryDistance){
         System.out.println("Задание 3");
-
-        if (deliveryDistance < 20) {
-            System.out.println("Доставка карты займет сутки");
-        }
-        if ((deliveryDistance >= 20) && (deliveryDistance < 60)) {
-            System.out.println("Доставка карты займет двое суток");
-        }
-        if ((deliveryDistance >= 60) && (deliveryDistance < 100)) {
-            System.out.println("Доставка карты займет трое суток");
-        }
-        if (deliveryDistance > 100)
-            System.out.println("доставка карты не осуществляется");
-
+        System.out.println("Потребуется дней: " + findOutTheNumberOfDay(deliveryDistance));
     }
 }
